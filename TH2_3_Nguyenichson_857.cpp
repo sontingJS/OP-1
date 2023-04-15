@@ -7,16 +7,16 @@ class Hang{
 	public:
 		void nhap();
 		void xuat();
-			
+		friend class Phieu;
 };
 class Phieu{
 	char MP[10];
 	Hang x[100];
-	int *n;
+	int n;
 	public:
 		void nhap();
 		void xuat();
-		friend class Hang;
+		
 };
 void Hang::nhap(){
 	cout<<"nhap ma hang : ";fflush(stdin);gets(MH);
@@ -26,24 +26,25 @@ void Hang::nhap(){
 void Hang::xuat(){
 	cout<<"ma hang : "<<MH<<endl;
 	cout<<"ten hang : "<<TH<<endl;
-	cout<<"gia : "<<DG;
+	cout<<"gia : "<<DG<<endl;
 }
+
 void Phieu::nhap(){
 	cout<<"nhap ma phieu : ";fflush(stdin);gets(MP);
-	x.nhap();
-	cout<<"nhap n : ";
-	cin>>n;
+	cout<<"nhap n : ";cin>>n;
+	for(int i=0;i<n;i++){
+		x[i].nhap();
+	}
 }
 void Phieu::xuat(){
 	cout<<"ma phieu : "<<MP<<endl;
-	x.xuat();
+		for(int i=0;i<n;i++){
+		x[i].xuat();
+	}
 }
 int main(){
-	Phieu a[100];
-	for(int i=0;i<a.n;i++){
-		a[i].nhap();
-	}
-	for(int i=0;i<a.n;i++){
-		a[i].xuat();
-	}
+	Phieu a;
+	a.nhap();
+	a.xuat();
 }
+
