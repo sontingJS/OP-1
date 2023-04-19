@@ -31,11 +31,9 @@ void SV::xuat(){
 }
 void SX(SV a[],int n){
 	for(int i=0;i<n-1;i++){
-		for(int j=1;j<n;j++){
-			if(a[i].TD>a[j].TD){
-				SV tg= a[i];
-				a[i]=a[j];
-				a[j]=tg;
+		for(int j=0;j<n-1-i;j++){
+			if(a[j].TD>a[j+1].TD){
+				swap(a[j],a[j+1]);
 			}
 		}
 	}
